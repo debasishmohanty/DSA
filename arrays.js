@@ -64,3 +64,23 @@ function flattenArr(arr) {
 }
 result = flattenArr(input)
 console.log(result)
+
+// Sort an array with dept first. if dept are equal then sort with age.
+let objArr = [
+  {name: 'A', age: 23, dept: 'IT'},
+  {name: 'B', age: 20, dept: 'Engineering'},
+  {name: 'A', age: 30, dept: 'IT'},
+  {name: 'A', age: 40, dept: 'IT'},
+];
+
+let sorteArr = objArr.sort((a, b) => {
+  if (a.dept < b.dept) {
+    return -1;
+  }
+  if (a.dept > b.dept) {
+    return 1;
+  }
+  return a.age - b.age;   // when dept are equal this line will be executed. so now sort the age in ascending order.
+  // return 0;   // If requirement is only sort with dept, then return 0.
+})
+console.log(sorteArr)
