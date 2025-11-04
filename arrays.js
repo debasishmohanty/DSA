@@ -43,3 +43,24 @@ function checkValidDigits (num) {debugger;
     }
     return true;
 }
+
+// Write a function to flatten an array of any depth. 
+const input = [1, [2, [3, [4]], 5]]; output = [1,2,3,4,5]
+let finalArr = [];
+function flattenArr(arr) {
+  if(Array.isArray(arr) && arr.length <= 0) {
+    return;
+  }
+  let i = 0;
+  while(i < arr.length) {
+    if (Array.isArray(arr[i]) && arr[i].length > 0) {
+      return flattenArr(arr[i]);
+    } else {
+      finalArr.push(arr[i]);
+    }
+    i++;
+  }
+  return finalArr;
+}
+result = flattenArr(input)
+console.log(result)
